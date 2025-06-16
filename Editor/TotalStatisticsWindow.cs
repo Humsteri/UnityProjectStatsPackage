@@ -26,7 +26,7 @@ static class OnStartUp
     //    public static Vector2 CurrentMousePosition => new Vector2(_mousePoint.x, _mousePoint.y);
     //#endif
     static OnStartUp()
-    {   
+    {
         AssemblyReloadEvents.beforeAssemblyReload += OnBeforeAssemblyRelaod;
         AssemblyReloadEvents.afterAssemblyReload += OnAfterAssemblyRelaod;
 
@@ -81,8 +81,8 @@ static class OnStartUp
     {
         if (!incrementedThisCompilation)
         {
-            DailyLoadManager.Instance.IncrementCompiled();
-            DailyLoadManager.Instance.Save();
+            LoadManager.Instance.IncrementCompiled();
+            LoadManager.Instance.Save();
             incrementedThisCompilation = true;
         }
     }

@@ -162,34 +162,34 @@ public class Total : VisualElement
     }
     private void UpdatePlayModeEntered(int obj)
     {
-        _totalPlayModeCountLabel.text = $"Total Times play mode entered: {obj}";
+        _totalPlayModeCountLabel.text = $"{obj}";
     }
     private void UpdateRedo(int obj)
     {
-        _totalRedoCountLabel.text = $"Total Times redo: {obj}";
+        _totalRedoCountLabel.text = $"{obj}";
     }
     private void UpdateUndo(int arg2)
     {
-        _totalUndoCountLabel.text = $"´Total Times undo: {arg2}";
+        _totalUndoCountLabel.text = $"{arg2}";
     }
     private void UpdateLog(LogType type, int arg2)
     {
         switch (type)
         {
             case LogType.Error:
-                _totalErrorLogCountLabel.text = $"Total Error log count: {arg2}";
+                _totalErrorLogCountLabel.text = $"{arg2}";
                 break;
             case LogType.Assert:
-                _totalAssertLogCountLabel.text = $"Total Assert log count: {arg2}";
+                _totalAssertLogCountLabel.text = $"{arg2}";
                 break;
             case LogType.Warning:
-                _totalWarningLogCountLabel.text = $"Total Warning log count: {arg2}";
+                _totalWarningLogCountLabel.text = $"{arg2}";
                 break;
             case LogType.Log:
-                _totalNormalLogCountLabel.text = $"Total Normal log count: {arg2}";
+                _totalNormalLogCountLabel.text = $"{arg2}";
                 break;
             case LogType.Exception:
-                _totalExceptionLogCountLabel.text = $"Total Exception log count: {arg2}";
+                _totalExceptionLogCountLabel.text = $"{arg2}";
                 break;
             default:
                 break;
@@ -197,11 +197,11 @@ public class Total : VisualElement
     }
     private void UpdateScene(int count)
     {
-        _totalSceneOpenedCountLabel.text = $"Times scenes opened: {count}";
+        _totalSceneOpenedCountLabel.text = $"{count}";
     }
     public void SetCompiled(int count)
     {
-        _totalCompiledCountLabel.text = $"Times compiled: {count}";
+        _totalCompiledCountLabel.text = $"{count}";
     }
     void UpdateTime()
     {
