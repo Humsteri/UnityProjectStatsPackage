@@ -112,8 +112,10 @@ static class OnStartUp
             long endTimestamp = Stopwatch.GetTimestamp();
             long elapsedTicks = endTimestamp - startTimestamp;
             double elapsedSeconds = (double)elapsedTicks / Stopwatch.Frequency;
-
-            LoadManager.Instance.AddDomainReloadTime(elapsedSeconds);
+            if (elapsedSeconds >= 0)
+            {
+                LoadManager.Instance.AddDomainReloadTime(elapsedSeconds);
+            }
 
             EditorPrefs.DeleteKey(ReloadStartTimeKey);
             LoadManager.Instance.Save();

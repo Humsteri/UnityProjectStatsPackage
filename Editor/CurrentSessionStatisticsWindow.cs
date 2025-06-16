@@ -89,8 +89,10 @@ static class OnStartUpDaily
             long endTimestamp = Stopwatch.GetTimestamp();
             long elapsedTicks = endTimestamp - startTimestamp;
             double elapsedSeconds = (double)elapsedTicks / Stopwatch.Frequency;
-
-            DailyLoadManager.Instance.AddDomainReloadTime(elapsedSeconds);
+            if (elapsedSeconds >= 0)
+            {
+                DailyLoadManager.Instance.AddDomainReloadTime(elapsedSeconds);
+            }
 
             EditorPrefs.DeleteKey(ReloadStartTimeKey);
             DailyLoadManager.Instance.Save();
