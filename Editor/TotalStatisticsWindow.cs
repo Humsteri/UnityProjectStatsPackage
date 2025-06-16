@@ -44,17 +44,18 @@ static class OnStartUp
 
         if (!SessionState.GetBool("FirstInitDone", false)) // Get the first startup
         {
-            int exitedCleanly = PlayerPrefs.GetInt("ExitedCleanly", 1);
+            /* int exitedCleanly = PlayerPrefs.GetInt("ExitedCleanly", 1);
             if (exitedCleanly == 0)
             {
                 LoadManager.Instance.IncrementCrashesh();
-            }
+            } */
             LoadManager.Instance.IncrementOpened();
-            SessionState.SetBool("FirstInitDone", true);
+            LoadManager.Instance.Save();
+            //SessionState.SetBool("FirstInitDone", true);
         }
-        PlayerPrefs.SetInt("ExitedCleanly", 0);
+        //PlayerPrefs.SetInt("ExitedCleanly", 0);
 
-        LoadManager.Instance.Save();
+        
     }
 
     #region Event subscribers
@@ -124,10 +125,10 @@ static class OnStartUp
     private static void OnQuit()
     {
         LoadManager.Instance.AddTime((float)(EditorApplication.timeSinceStartup));
-        if((EditorApplication.timeSinceStartup > LoadManager.Instance.LongestSession()))
+        if(EditorApplication.timeSinceStartup > LoadManager.Instance.LongestSession())
             LoadManager.Instance.SetLongestSession(EditorApplication.timeSinceStartup);
 
-        PlayerPrefs.SetInt("ExitedCleanly", 1);
+        //PlayerPrefs.SetInt("ExitedCleanly", 1);
 
         LoadManager.Instance.Save();
     }

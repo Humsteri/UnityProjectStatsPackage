@@ -57,14 +57,14 @@ public class Total : VisualElement
         container.Add(NewTextLabel("[ Actions ]", new Vector2(45, 160), TextAnchor.MiddleLeft));
         container.Add(NewCountLabel(ref _totalProjectOpenedLabel, styleSheet, timesProjectOpened, new Vector2(50, 200)));
         container.Add(NewTextLabel("Project sessions", new Vector2(50, 220), TextAnchor.MiddleCenter));
-        container.Add(NewCountLabel(ref _totalCrashAmountLabel, styleSheet, crashAmount, new Vector2(200, 200)));
-        container.Add(NewTextLabel("Crashesh", new Vector2(200, 220), TextAnchor.MiddleCenter));
+        //container.Add(NewCountLabel(ref _totalCrashAmountLabel, styleSheet, crashAmount, new Vector2(200, 200)));
+        //container.Add(NewTextLabel("Crashesh", new Vector2(200, 220), TextAnchor.MiddleCenter));
+        container.Add(NewCountLabel(ref _totalPlayModeCountLabel, styleSheet, timesPlayModePressed, new Vector2(200, 200)));
+        container.Add(NewTextLabel("Play mode entered", new Vector2(200, 220), TextAnchor.MiddleCenter));
         container.Add(NewCountLabel(ref _totalSceneOpenedCountLabel, styleSheet, totalScenesOpenedAmount, new Vector2(350, 200)));
         container.Add(NewTextLabel("Scenes opened", new Vector2(350, 220), TextAnchor.MiddleCenter));
-        container.Add(NewCountLabel(ref _totalPlayModeCountLabel, styleSheet, timesPlayModePressed, new Vector2(50, 260)));
-        container.Add(NewTextLabel("Play mode entered", new Vector2(50, 280), TextAnchor.MiddleCenter));
-        container.Add(NewCountLabel(ref _totalCompiledCountLabel, styleSheet, timesProjectCompiled, new Vector2(200, 260)));
-        container.Add(NewTextLabel("Total compiled", new Vector2(200, 280), TextAnchor.MiddleCenter));
+        container.Add(NewCountLabel(ref _totalCompiledCountLabel, styleSheet, timesProjectCompiled, new Vector2(50, 260)));
+        container.Add(NewTextLabel("Total compiled", new Vector2(50, 280), TextAnchor.MiddleCenter));
 
         container.Add(NewTextLabel("[ Edits ]", new Vector2(45, 320), TextAnchor.MiddleLeft));
         container.Add(NewCountLabel(ref _totalRedoCountLabel, styleSheet, totalRedoAmount, new Vector2(50, 360)));
@@ -206,7 +206,7 @@ public class Total : VisualElement
     void UpdateTime()
     {
         currentSessionLength = (float)(EditorApplication.timeSinceStartup);
-        _totalTimeSpentLabel.text = $"{TimeSpan.FromSeconds(totalTimeSpent + currentSessionLength).Hours} H " +
+        _totalTimeSpentLabel.text = $"{(int)TimeSpan.FromSeconds(totalTimeSpent  + currentSessionLength).TotalHours} H " +
             $"{TimeSpan.FromSeconds(totalTimeSpent + currentSessionLength).Minutes} mm " +
             $"{TimeSpan.FromSeconds(totalTimeSpent + currentSessionLength).Seconds} ss ";
     }

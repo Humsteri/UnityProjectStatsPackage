@@ -141,7 +141,7 @@ public class CurrentSession : VisualElement
     void UpdateTime()
     {
         currentSessionLength = (float)(EditorApplication.timeSinceStartup);
-        _sessionLengthLabel.text = $"{TimeSpan.FromSeconds(currentSessionLength).Hours} H " +
+        _sessionLengthLabel.text = $"{(int)TimeSpan.FromSeconds(currentSessionLength).TotalHours} H " +
             $"{TimeSpan.FromSeconds(currentSessionLength).Minutes} mm " +
             $"{TimeSpan.FromSeconds(currentSessionLength).Seconds} ss";
     }
