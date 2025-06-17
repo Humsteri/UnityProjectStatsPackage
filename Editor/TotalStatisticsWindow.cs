@@ -117,7 +117,7 @@ static class OnStartUp
             {
                 LoadManager.Instance.AddDomainReloadTime(elapsedSeconds);
             }
-
+            
             EditorPrefs.DeleteKey(ReloadStartTimeKey);
             LoadManager.Instance.Save();
         }
