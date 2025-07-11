@@ -13,6 +13,7 @@ public class LoadManager
     double totalDomainReloadTime = 0, totalTimeSpentInPlayMode = 0, longestSession = 0;
     int timesProjectOpened = 0, timesCompiled = 0, timesPlayModePressed = 0, totalSceneOpenedAmount = 0, totalRedoAmount = 0, totalUndoAmount = 0, crashAmount = 0;
     int normalLogAmount = 0, warningLogAmount = 0, errorLogAmount = 0, assertLogAmount = 0, exceptionLogAmount = 0;
+    bool openedIncremented = false;
     public Action<int> CompiledAction;
     public Action<int> CrashAction;
     public Action<int> ProjectOpenedAction;
@@ -41,6 +42,7 @@ public class LoadManager
             if (dataLoaded.spendDatas.Count > 0)
             {
                 var item = dataLoaded.spendDatas[0];
+                openedIncremented = item.OpenedIncremented;
                 date = item.Date;
                 timesProjectOpened = item.TimesOpened;
                 timesCompiled = item.TimesCompiled;
@@ -66,6 +68,7 @@ public class LoadManager
         SpendDataList dataToSave = new SpendDataList();
         dataToSave.spendDatas.Add(new SpendData
         {
+            OpenedIncremented = openedIncremented,
             Date = date,
             TimesOpened = timesProjectOpened,
             TimesCompiled = timesCompiled,
@@ -91,6 +94,11 @@ public class LoadManager
     #endregion
     #region Setters
     // Setters / Incrementers
+    public void Opened(bool value)
+    {
+        openedIncremented = value;
+    }
+    public bool GetOpened() => openedIncremented;
     public void IncrementOpened()
     {
         timesProjectOpened++;
@@ -210,6 +218,7 @@ public class LoadManager
 [System.Serializable]
 public class SpendData
 {
+    public bool OpenedIncremented;
     public string Date;
     public int TimesOpened;
     public int TimesCompiled;

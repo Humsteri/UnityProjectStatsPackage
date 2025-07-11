@@ -49,8 +49,14 @@ static class OnStartUp
             {
                 LoadManager.Instance.IncrementCrashesh();
             } */
-            LoadManager.Instance.IncrementOpened();
-            LoadManager.Instance.Save();
+            if (!LoadManager.Instance.GetOpened())
+            {
+                LoadManager.Instance.IncrementOpened();
+                LoadManager.Instance.Opened(true);
+                LoadManager.Instance.Save();
+            }
+            
+            
             //SessionState.SetBool("FirstInitDone", true);
         }
         //PlayerPrefs.SetInt("ExitedCleanly", 0);
@@ -129,7 +135,7 @@ static class OnStartUp
             LoadManager.Instance.SetLongestSession(EditorApplication.timeSinceStartup);
 
         //PlayerPrefs.SetInt("ExitedCleanly", 1);
-
+        LoadManager.Instance.Opened(false);
         LoadManager.Instance.Save();
     }
     private static void ModeStateChanged(PlayModeStateChange change)
