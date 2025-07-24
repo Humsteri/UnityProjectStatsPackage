@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
-public class DailyLoadManager
+namespace StatsMonitor
+{
+    public class DailyLoadManager
 {
     #region Instance
     private static DailyLoadManager instance;
@@ -234,3 +235,4 @@ public class CurrentSessionDataList
     public List<CurrentSessionData> spendDatas = new List<CurrentSessionData>();
 }
 #endregion
+}

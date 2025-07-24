@@ -2,8 +2,9 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-
-public class CurrentSession : VisualElement
+namespace StatsMonitor
+{
+    public class CurrentSession : VisualElement
 {
     public static CurrentSession instance;
     int timesProjectCompiled = 0, timesPlayModePressed = 0, totalScenesOpenedAmount = 0, totalRedoAmount = 0, totalUndoAmount = 0;
@@ -231,4 +232,5 @@ public class CurrentSession : VisualElement
         if (instance == this)
             instance = null;
     }
+}
 }

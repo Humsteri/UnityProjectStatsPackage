@@ -4,8 +4,9 @@ using UnityEditor.Compilation;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-[InitializeOnLoad]
+namespace StatsMonitor
+{
+    [InitializeOnLoad]
 static class OnStartUp
 {
     private const string ReloadStartTimeKey = "\"DomainReloadProfiler.StartTime";
@@ -178,3 +179,5 @@ static class OnStartUp
 }
 
 
+
+}

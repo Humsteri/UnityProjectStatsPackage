@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-
-public class StatisticsWindow : EditorWindow
+namespace StatsMonitor
+{
+    public class StatisticsWindow : EditorWindow
 {
     [MenuItem("Window/Total statistics")]
     public static void ShowWindow()
@@ -91,4 +92,6 @@ public class StatisticsWindow : EditorWindow
                 break;
         }
     }
+}
+
 }
