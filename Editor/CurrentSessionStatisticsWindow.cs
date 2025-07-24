@@ -5,9 +5,8 @@ using UnityEditor.Compilation;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace StatsMonitor
-{
-   public class CurrentSessionStatisticsWindow : EditorWindow
+
+public class CurrentSessionStatisticsWindow : EditorWindow
 {
     #region Instance
     public static CurrentSessionStatisticsWindow instance;
@@ -134,5 +133,4 @@ static class OnStartUpDaily
         }
     }
     #endregion
-} 
 }

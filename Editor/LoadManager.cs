@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-namespace StatsMonitor
-{
-    public class LoadManager
+
+public class LoadManager
 {
     #region Instance
     private static LoadManager instance;
@@ -245,4 +244,3 @@ public class SpendDataList
     public List<SpendData> spendDatas = new List<SpendData>();
 }
 #endregion
-}

@@ -1,10 +1,13 @@
 using System;
+using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-namespace StatsMonitor
-{
-    public class Total : VisualElement
+
+public class Total : VisualElement
 {
     public static Total instance;
     int timesProjectOpened = 0, timesProjectCompiled = 0, timesPlayModePressed = 0, totalScenesOpenedAmount = 0, totalRedoAmount = 0, totalUndoAmount = 0, crashAmount = 0;
@@ -241,6 +244,4 @@ namespace StatsMonitor
         if (instance == this)
             instance = null;
     }
-}
-
 }
