@@ -111,9 +111,10 @@ public class Total : VisualElement
     }
     Label NewTimeLabel(ref Label label, StyleSheet styleSheet, double time, Vector2 pos, Vector2 size)
     {
-        label = new Label($"{TimeSpan.FromSeconds(time).Hours} H " +
-            $"{TimeSpan.FromSeconds(time).Minutes} mm " +
-            $"{TimeSpan.FromSeconds(time).Seconds} s ");
+        var ts = TimeSpan.FromSeconds(time);
+        label = new Label($"{(int)ts.TotalHours} H H " +
+                        $"{ts.Minutes} mm " +
+                        $"{ts.Seconds} s ");
         label.style.width = size.x;
         label.style.height = size.y;
         label.styleSheets.Add(styleSheet);
